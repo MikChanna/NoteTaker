@@ -3,11 +3,12 @@
 var express = require("express");
 var path = require("path");
 var fs = require("fs");
+let db = require("./db.json");
 
 // Sets up the Express App & Path
 // =============================================================
 var app = express();
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -35,7 +36,7 @@ app.listen(PORT, function () {
 
 // Displays all notes
 app.get("/api/notes", function (req, res) {
-  return res.json(note);
+  res.json(db);
 });
 
 // Create new notes - takes in JSON input and write to json file
