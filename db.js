@@ -38,3 +38,14 @@ app.listen(PORT, function () {
 app.get("/api/notes", function (req, res) {
   return res.json(notes);
 });
+
+// Create new notes - takes in JSON input
+app.post("/api/notes", function (req, res) {
+  var newNote = req.body;
+
+  console.log(newNote);
+
+  notes.push(newNote);
+
+  res.json(newNote);
+});
