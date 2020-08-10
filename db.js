@@ -16,7 +16,7 @@ app.use(express.static("public"));
 
 // Notes Array
 
-var notes = [];
+var note = [];
 
 // Routes
 // =============================================================
@@ -35,20 +35,27 @@ app.listen(PORT, function () {
 
 // Displays all notes
 app.get("/api/notes", function (req, res) {
-  return res.json(notes);
+  return res.json(note);
 });
 
-// Displays specific note
-app.get("/api/notes/:title", function (req, res) {
-  fs.writeFileSync("db.json").push(newNote);
-});
-
-// Create new notes - takes in JSON input
+// Create new notes - takes in JSON input and write to json file
 app.post("/api/notes", function (req, res) {
   var newNote = req.body;
-  var json = JSON.stringify(newNote);
-
-  notes.push(newNote);
+  note.push(newNote);
   res.json(newNote);
+  var json = JSON.stringify(note);
   fs.writeFileSync("db.json", json, "utf8");
+});
+
+// Displays not details, or returns false
+app.get("/api/notes/:note", function (req, res) {
+  var chosen = $(noteTitle);
+
+  for (var i = 0; i < note.length; i++) {
+    if (chosen === note[i].title) {
+      return res.json(note[i]);
+    }
+  }
+
+  return res.json(false);
 });
