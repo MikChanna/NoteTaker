@@ -8,7 +8,7 @@ This project is a Note Taking app that will allow you to take notes, edit, and d
 
 ## Usage Information
 
-The application is deployed on Heroku and can be tested by clicking on `Open app` at this link.  https://dashboard.heroku.com/apps/dry-coast-97411 
+The application is deployed on Heroku and can be tested at https://dry-coast-97411.herokuapp.com/.
 
 
 
