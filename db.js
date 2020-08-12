@@ -49,3 +49,12 @@ app.post("/api/notes", function (req, res) {
   fs.writeFileSync("db.json", json, "utf8");
   console.log(req.body.id);
 });
+
+// deletes notes
+app.delete("/api/notes/:id", function (req, res) {
+  const id = req.params.id;
+  const deletedNote = db.splice(id);
+  var json = JSON.stringify(note);
+  fs.writeFileSync("db.json", json, "utf8");
+  res.json(deletedNote);
+});
