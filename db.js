@@ -42,21 +42,10 @@ app.get("/api/notes", function (req, res) {
 // Create new notes - takes in JSON input and write to json file
 app.post("/api/notes", function (req, res) {
   var newNote = req.body;
+  req.body.id = Math.floor(Math.random() * 9999) + 1;
   note.push(newNote);
   res.json(newNote);
   var json = JSON.stringify(note);
   fs.writeFileSync("db.json", json, "utf8");
-});
-
-// Displays not details, or returns false
-app.get("/api/notes/:note", function (req, res) {
-  var chosen = $(noteTitle);
-
-  for (var i = 0; i < note.length; i++) {
-    if (chosen === note[i].title) {
-      return res.json(note[i]);
-    }
-  }
-
-  return res.json(false);
+  console.log(req.body.id);
 });

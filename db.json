@@ -1,8 +1,1 @@
-[
-  { "title": "chores", "text": "laundry\ndishes\n" },
-  {
-    "title": "bootcamp",
-    "text": "go to class\ndo homework\nreview classwork\n"
-  },
-  { "title": "Dogs", "text": "My dogs' names are Koru and Ora." }
-]
+[{"title":"happy note taking","text":"Hello!","id":1410}]
